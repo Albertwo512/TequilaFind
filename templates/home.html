@@ -15,19 +15,86 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="{{ url_for('static', filename='css/img/logo.jpg') }}" alt="Logo" width="60" height="55" class="d-inline-block align-text-top">
-                
+                <img src="{{ url_for('static', filename='css/img/logo.jpg') }}" alt="Logo" width="65" height="60" class="d-inline-block align-text-top">
               </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav m-lg-auto">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
+              <h4>Tequila Find</h4>            
+              <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-secondary text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  About
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Bienvenido a nuestra página - Tequila Find</h5>
+      </div>
+      <div class="modal-body">
+En B2 Studios junto con nuestro amigo Agavi, estamos dedicados a brindarte experiencias inolvidables a través del poder de la Inteligencia Artificial (IA). Nuestro enfoque se centra en ayudar a las personas que desean explorar nuevos lugares y descubrir todo lo que Tequila y sus alrededores tienen para ofrecer. Si estás buscando sugerencias para comer, conocer sitios interesantes o necesitas un taxi ejecutivo para facilitar tu traslado, ¡estamos aquí para ayudarte!
+</div>
+
+<div class="modal-body">
+  <h5>¿Qué hacemos?</h5>
+</div>
+<div class="modal-body">
+  Nuestra misión es hacer que tu experiencia en Tequila sea única y sin complicaciones. Gracias a nuestra avanzada tecnología de IA, podemos proporcionarte información actualizada sobre todos los lugares de interés en la zona, asegurándonos de que no te pierdas nada de lo que esta hermosa región tiene para ti. Desde lugares históricos y culturales hasta restaurantes con delicias locales, nuestro sistema está diseñado para adaptarse a tus preferencias y necesidades individuales.
+</div>
+<div class="modal-body">
+  <h5>¿Para quién es nuestro servicio?</h5>
+</div>
+<div class="modal-body">
+  Nuestro servicio está diseñado tanto para turistas que visitan Tequila por primera vez como para entusiastas locales que buscan ampliar su conocimiento sobre su propia ciudad. Si eres un viajero aventurero que desea explorar lo mejor de la región o un residente que quiere redescubrir su lugar de origen, nuestro equipo de IA estará encantado de asistirte.
+</div>
+
+<div class="modal-body">
+  <h5>¿Por qué elegirnos?</h5>
+</div>
+<div class="modal-body">
+  <h6>Experiencia personalizada:</h6> Entendemos que cada individuo tiene gustos y preferencias únicas. Nuestro sistema de IA se adapta a tus intereses para proporcionarte recomendaciones que realmente se ajusten a tus necesidades.
+  <br>
+  <br>
+  <h6>Información actualizada:</h6>Nuestro equipo de expertos se asegura de mantener actualizada nuestra base de datos para ofrecerte la información más precisa sobre los lugares y servicios disponibles en Tequila.
+  <br>
+  <br>
+  <h6>Facilidad de uso: </h6>Nuestra plataforma es intuitiva y fácil de usar. No necesitas ser un experto en tecnología para disfrutar de todas las ventajas que ofrecemos.
+  <div class="modal-body">
+    <br>
+  <h5>¡Únete a nosotros en esta emocionante aventura!</h5>
+  </div>
+  <div class="modal-body">
+    Ya sea que estés planeando tu primera visita a Tequila o si ya estás familiarizado con la región, estamos aquí para enriquecer tu experiencia. Permítenos guiarte a través de este viaje y descubrir juntos todos los tesoros que Tequila tiene reservados para ti.
+  </div>
+  <div class="modal-body">
+    <br>
+  <h5>¿Quieres formar parte de esto o agregar tu negocio? ¡Avísanos en nuestras redes sociales!</h5>
+  </div>
+  <div class="modal-body">
+    Nos encantaría contar contigo en nuestra comunidad. Si tienes un negocio en Tequila o conoces uno que podría ser de interés para nuestros usuarios, no dudes en ponerte en contacto con nosotros a través de nuestras redes sociales. Estamos siempre abiertos a nuevas colaboraciones y oportunidades para mejorar aún más la experiencia de nuestros usuarios.
+  </div>
+  <div class="modal-body">
+    <br>
+  <h5>¡Gracias por elegirnos para ser parte de tu experiencia en Tequila!</h5>
+  </div>
+
+</div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+              
+                    </div>
+
+
+                <!-- <a class="nav-link" href="/about">About</a> -->
               </li>
             </ul>
           </div>
@@ -37,13 +104,17 @@
         <img src="{{ url_for('static', filename='css/img/agavi.jpg') }}" alt="Logo" width="100" height="90" class="d-inline-block align-text-top">
         <p>Hola soy agavi... como puedo ayudarte? </p>
         <p>Hi i'm Agavi... How can i help you?</p>
+        <div class="input-group mx-auto p-4">
+          <input type="text" class="form-control" placeholder="Ej: Donde hay buenos restaurantes...? | Ex: Where are good restaruant...?" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+          </svg></button>
+        </div>
+        <img src="{{ url_for('static', filename='css/img/logob2.jpg') }}" alt="Logo" width="70" height="65" class="d-inline-block align-text-top">
       </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Ejemplo: Donde hay buenos restaurantes... | Example: Where are good restaruant?" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
-          <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
-        </svg></button>
-      </div>
+     
+      
+
       
 
 
