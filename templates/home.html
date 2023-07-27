@@ -14,16 +14,17 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ url_for('static', filename='css/img/logo.jpg') }}" alt="Logo" width="65" height="60" class="d-inline-block align-text-top">
               </a>
               <h4>Tequila Find</h4>            
-              <!-- Button trigger modal -->
+              
+<!-- Boton para desplegar about -->
 <button type="button" class="btn btn-outline-success text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
   About
 </button>
 
-<!-- Modal -->
+<!-- Despliegue de About -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -90,16 +91,10 @@ En B2 Studios junto con nuestro amigo Agavi, estamos dedicados a brindarte exper
     </div>
   </div>
 </div>
-              
-                    </div>
-
-
-                <!-- <a class="nav-link" href="/about">About</a> -->
-              </li>
-            </ul>
-          </div>
         </div>
-      </nav>
+    </nav>
+
+    <!-- Panel de interaccion  -->
       <div class="text-center">
         <img src="{{ url_for('static', filename='css/img/agavi.jpg') }}" alt="Logo" width="100" height="90" class="d-inline-block align-text-top">
         <p>Hola soy agavi... como puedo ayudarte? </p>
