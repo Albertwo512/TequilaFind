@@ -1,14 +1,28 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+# Lista para almacenar las respuestas del chat
+respuestas_chat = []
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    global respuestas_chat
+    
+    if request.method == 'POST':
+        user_input = request.form['askHuman']
+        # Aquí puedes realizar alguna lógica específica con la entrada del usuario
+        # Por ejemplo, una simple respuesta automática
+        if user_input.lower() == 'hola':
+            respuesta = "¡Hola! ¿Cómo estás?"
+        else:
+            respuesta = "Gracias por tu mensaje: " + user_input
+        
+        # Agregar la respuesta del usuario y la respuesta del chat a la lista
+        respuestas_chat.append(("Tu", user_input))
+        respuestas_chat.append(("Agavi", respuesta))
+
+    return render_template('index.html', respuestas_chat=respuestas_chat)
 
 if __name__ == "__main__":
     app.run(debug=True)
