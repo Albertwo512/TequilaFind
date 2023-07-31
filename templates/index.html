@@ -8,52 +8,6 @@
     <p>Hi, I'm Agavi... How can I help you?</p>
     
     <div class="chat-box" data-bs-spy="scroll" data-bs-target="#navbar-example3" autocomplete="off" style="height: auto;">
-      <style>
-          .chat-message {
-              display: flex;
-              gap: 10px;
-              max-width: 80%; /* Limita el ancho del chat para que no ocupe todo el espacio */
-          }
-  
-          .message-content {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start; /* Alinea el contenido al inicio del contenedor */
-          }
-  
-          .message-content img {
-            border-radius: 50%; /* Hace que la imagen sea redonda */
-              width: 80px; /* Establece un tamaño fijo para la imagen */
-              height: 80px;
-              
-          }
-  
-          .message-content p {
-              flex-grow: 1;
-              font-size: 16px; /* Ajusta el tamaño del texto */
-              white-space: pre-wrap; /* Ajusta el texto automáticamente al ancho del contenedor y permite saltos de línea */
-              text-align: left; /* Alinea el texto a la izquierda */
-          }
-          .fixed-bottom {
-        position: fixed;
-        bottom: 10px; /* Ajusta esta propiedad según la posición vertical deseada */
-        left: 50%; /* Centra horizontalmente */
-        transform: translateX(-50%); /* Centra horizontalmente */
-          }
-          .fixed-bottom.form {
-        bottom: 100px; /* Ajusta la posición vertical para separar del siguiente contenedor */
-          }
-
-          .fixed-bottom.clear {
-              bottom: 60px; /* Ajusta la posición vertical para separar del siguiente contenedor */
-          }
-
-          .fixed-bottom.additional {
-              bottom: 20px; /* Ajusta la posición vertical para separar del siguiente contenedor */
-          }
-          
-      </style>
-  
       {% for persona, mensaje in respuestas_chat %}
           <div class="chat-message">
               {% if persona == "Tu" %}
@@ -82,8 +36,8 @@
     <p class="p-5"><img src="{{ url_for('static', filename='css/img/logob2.jpg') }}" alt="Logo" width="70" height="65" class="d-inline-block align-text-top"></p>
   </div>
   <!-- input y boton -->
-  <div class="fixed-bottom form ">
-    <form action="{{ url_for('home') }}" method="post" class="fixed-bottom form input-group  ">
+  <div class="fixed-bottom form p-1">
+    <form action="{{ url_for('home') }}" method="post" class="fixed-bottom form input-group ">
       <input type="text" name="askHuman" class="form-control" placeholder="Ej: ¿Dónde hay buenos restaurantes...? | Ex: Where are good restaurants...?" aria-label="Recipient's username" aria-describedby="button-addon2" required>
       <button class="btn btn-outline-success bg-body" type="submit" id="button-addon2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
@@ -125,5 +79,50 @@ if (alertTrigger) {
   })
 }
     </script>
+    <style>
+      .chat-message {
+          display: flex;
+          gap: 10px;
+          max-width: 80%; /* Limita el ancho del chat para que no ocupe todo el espacio */
+      }
+
+      .message-content {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start; /* Alinea el contenido al inicio del contenedor */
+      }
+
+      .message-content img {
+        border-radius: 50%; /* Hace que la imagen sea redonda */
+          width: 80px; /* Establece un tamaño fijo para la imagen */
+          height: 80px;
+          
+      }
+
+      .message-content p {
+          flex-grow: 1;
+          font-size: 16px; /* Ajusta el tamaño del texto */
+          white-space: pre-wrap; /* Ajusta el texto automáticamente al ancho del contenedor y permite saltos de línea */
+          text-align: left; /* Alinea el texto a la izquierda */
+      }
+      .fixed-bottom {
+    position: fixed;
+    bottom: 10px; /* Ajusta esta propiedad según la posición vertical deseada */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
+      }
+      .fixed-bottom.form {
+    bottom: 100px; /* Ajusta la posición vertical para separar del siguiente contenedor */
+      }
+
+      .fixed-bottom.clear {
+          bottom: 60px; /* Ajusta la posición vertical para separar del siguiente contenedor */
+      }
+
+      .fixed-bottom.additional {
+          bottom: 20px; /* Ajusta la posición vertical para separar del siguiente contenedor */
+      }
+      
+  </style>
 
 {% endblock %}
