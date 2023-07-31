@@ -6,80 +6,64 @@
     <img src="{{ url_for('static', filename='css/img/agavi.jpg') }}" alt="Logo" width="100" height="90" class="d-inline-block align-text-top">
     <p>Hola soy agavi... ¿cómo puedo ayudarte?</p>
     <p>Hi, I'm Agavi... How can I help you?</p>
-    
-    <div class="chat-box" data-bs-spy="scroll" data-bs-target="#navbar-example3" autocomplete="off" style="height: auto;">
-      {% for persona, mensaje in respuestas_chat %}
-          <div class="chat-message">
-              {% if persona == "Tu" %}
-                  <div class="message-content">
-                      <img src="{{ url_for('static', filename='css/img/usuario.jpg') }}" alt="Logo">
-                      <p class="badge text-bg-secondary ">
-                          <strong>{{ persona }}:</strong> {{ mensaje }}
-                      </p>
-                  </div>
-              {% endif %}
-              
-              {% if persona == "Agavi" %}
-                  <div class="message-content">
-                      <img class="float-xxl-end" src="{{ url_for('static', filename='css/img/agavi.jpg') }}" alt="Logo">
-                      <p class="badge text-bg-success col-sm-12 float-xxl-start">
-                          <strong>{{ persona }}:</strong> {{ mensaje }}
-                      </p>
-                  </div>
-              {% endif %}
-          </div>
+</div>
+
+<div class="chat-box" data-bs-spy="scroll" data-bs-target="#navbar-example3" autocomplete="off" style="height: auto;">
+      
+  <div class="container content">         
+                    {% for persona, mensaje in respuestas_chat %}
+                    <ul class="chat-list">
+                        {% if persona == "Tu" %}
+                        <li class="in">
+                            <div class="chat-img">
+                                <img src="{{ url_for('static', filename='css/img/usuario.jpg') }}" alt="Logo">
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-message">
+                                    <h5><strong> {{ persona }} </strong></h5>
+                                    <p>{{ mensaje }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if persona == "Agavi" %}
+                        <li class="out">
+                            <div class="chat-img">
+                                <img class="float-xxl-end" src="{{ url_for('static', filename='css/img/agavi.jpg') }}" alt="Logo">
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-message">
+                                    <h5><strong> {{ persona }} </strong></h5>
+                                    <p>{{ mensaje }}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
           <br>
+
       {% endfor %}
   </div>
-  <!-- Logo b2 under-->
-  <div class="p-5 g-col-6">
-    <p class="p-5"><img src="{{ url_for('static', filename='css/img/logob2.jpg') }}" alt="Logo" width="70" height="65" class="d-inline-block align-text-top"></p>
-  </div>
+  <!-- fondo under-->
+    <div class="text-center p-5 bg-dark-subtle">
+        <p class="p-5"></p>
+    </div>
   <!-- input y boton -->
-  <div class="fixed-bottom form p-1">
-    <form action="{{ url_for('home') }}" method="post" class="fixed-bottom form input-group ">
+  <div class="fixed-bottom form p-1 text-center">
+    <form action="{{ url_for('home') }}" method="post" class="fixed-bottom form input-group">
       <input type="text" name="askHuman" class="form-control" placeholder="Ej: ¿Dónde hay buenos restaurantes...? | Ex: Where are good restaurants...?" aria-label="Recipient's username" aria-describedby="button-addon2" required>
       <button class="btn btn-outline-success bg-body" type="submit" id="button-addon2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
               <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
           </svg>
-      </button>
+      </button>      
   </form>
+  <img src="{{ url_for('static', filename='css/img/logob2.jpg') }}" alt="Logo" width="70" height="65" class="d-inline-block align-text-top">
   </div>
-    
-    <div class=" fixed-bottom clear text-center">
-      
-        <!-- Botón para limpiar el chat utilizando JavaScript -->
-        <div id="liveAlertPlaceholder" class=" fixed-bottom mx-auto p-5" ></div>
-        <button type="button" class="btn btn-success " id="liveAlertBtn">Limpiar Chat</button>
-        <br>
-    
-
-    
-  </div>
-    <!-- Script para ejecutar el boton -->
-    <script>
-      const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Para limpiar el chat escribe "limpiar"', 'success')
-  })
-}
-    </script>
-    <style>
+  <style>
       .chat-message {
           display: flex;
           gap: 10px;
@@ -112,7 +96,7 @@ if (alertTrigger) {
     transform: translateX(-50%); /* Centra horizontalmente */
       }
       .fixed-bottom.form {
-    bottom: 100px; /* Ajusta la posición vertical para separar del siguiente contenedor */
+    bottom: 80px; /* Ajusta la posición vertical para separar del siguiente contenedor */
       }
 
       .fixed-bottom.clear {
@@ -123,6 +107,79 @@ if (alertTrigger) {
           bottom: 20px; /* Ajusta la posición vertical para separar del siguiente contenedor */
       }
       
+      .chat-list {
+    padding: 0;
+    font-size: .8rems;
+}
+
+.chat-list li {
+    margin-bottom: 10px;
+    overflow: auto;
+    color: white;
+}
+
+.chat-list .chat-img {
+    float: left;
+    width: 48px;
+}
+
+.chat-list .chat-img img {
+    -webkitborder-radus: 30px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.chat-list .chat-message {
+    -webkitborder-radus: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: green;
+    display: inline-block;
+    padding: 10px 20px;
+    position: inherit;
+}
+
+.chat-list .chat-message::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    width: 0;
+    height: 0;
+}
+.chat-list .chat-message h5 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    line-height: 100%;
+    font-size: .9rem;
+}
+
+.chat-list .chat-message p {
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-list .chat-body {
+    margin-left: 20px;
+    float: left;
+    width: 70%;
+
+} 
+
+.chat-list .out .chat-img {
+    float: right;
+} 
+
+.chat-list .out .chat-body {
+    float: right;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.chat-list .out .chat-message {
+    background-color: grey;
+}
   </style>
 
 {% endblock %}

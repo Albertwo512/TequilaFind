@@ -8,6 +8,7 @@ respuestas_chat = []
 @app.route('/', methods=['GET', 'POST'])
 def home():
     global respuestas_chat
+    leng = len(respuestas_chat)
     
     if request.method == 'POST':
         user_input = request.form['askHuman']
